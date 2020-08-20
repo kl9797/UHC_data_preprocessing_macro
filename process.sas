@@ -111,4 +111,48 @@ proc freq data=uhc.t_c;
 by max_2;
 tables DIAG / out=uhc.outcome2_freq;
 run;
+
+proc sql;
+create table uhc.t_c as
+select distinct a.*, b.GDR_CD, b.state, b.yrdob
+from uhc.t_c a
+inner join uhc.mbr2000_2007 b
+on a.patid = b.patid;
+quit;
+
+proc sort data=uhc.t_c; by max_3; run;
+proc freq data=uhc.t_c;
+by max_3;
+tables DIAG / out=uhc.outcome3_freq;
+run;
+
+proc sort data=uhc.t_c; by max_4; run;
+proc freq data=uhc.t_c;
+by max_4;
+tables DIAG / out=uhc.outcome4_freq;
+run;
+
+proc sort data=uhc.t_c; by max_5; run;
+proc freq data=uhc.t_c;
+by max_5;
+tables DIAG / out=uhc.outcome5_freq;
+run;
+
+proc sort data=uhc.t_c; by max_6; run;
+proc freq data=uhc.t_c;
+by max_6;
+tables DIAG / out=uhc.outcome6_freq;
+run;
+
+proc sort data=uhc.t_c; by max_7; run;
+proc freq data=uhc.t_c;
+by max_7;
+tables DIAG / out=uhc.outcome7_freq;
+run;
+
+proc sort data=uhc.t_c; by max_8; run;
+proc freq data=uhc.t_c;
+by max_8;
+tables DIAG / out=uhc.outcome8_freq;
+run;
           
