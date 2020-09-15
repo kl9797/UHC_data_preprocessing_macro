@@ -8,8 +8,8 @@
                 fst_dt= ,
                 lst_dt= ,
                 patid= ,
-                input_path_1= ;
-                input_path_2= ;
+                input_path_1= ,
+                input_path_2= ,
                 output_path= );
 							
 libname uhc  excel "&input_path_1";
