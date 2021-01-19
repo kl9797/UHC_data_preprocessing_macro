@@ -22,3 +22,16 @@ run;
 %mend;
 
 %DummyVars(pro.betablocker_filter, DIAG, pro.betablocker_dummy);
+
+libname pro "/scratch/yf31/uhc/process";
+
+proc contents varnum data = pro.betablocker_dummy;
+ods select position;
+run;
+
+ods graphics on;
+proc glmselect data=pro.betablocker_dummy plots=all;
+model treatment = DIAG_012 -- DIAG_V86 max_1 -- max_8 yrdob/ details=all stats=all;
+run;
+ods graphics off;
+~                   
